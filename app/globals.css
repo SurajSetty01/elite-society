@@ -1,26 +1,146 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0c090a;
+  --foreground: #fffff0;
+  color-scheme: dark;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  min-height: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-image:
+    radial-gradient(circle at top, rgba(255, 255, 240, 0.08), transparent 34%),
+    radial-gradient(circle at bottom, rgba(255, 255, 240, 0.03), transparent 28%);
+}
+
+main {
+  isolation: isolate;
+}
+
+::selection {
+  background: rgba(255, 255, 240, 0.22);
+  color: var(--background);
+}
+
+a {
+  text-decoration: none;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 2.25rem, 0) scale(0.985);
+  filter: blur(14px);
+  transition:
+    opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1000ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  filter: blur(0);
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+@keyframes float-reverse {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, 12px, 0);
+  }
+}
+
+.float-slow {
+  animation: float-slow 14s ease-in-out infinite;
+}
+
+.float-reverse {
+  animation: float-reverse 17s ease-in-out infinite;
+}
+
+.gallery-marquee {
+  --gallery-gap: 0.85rem;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 10%,
+    #000 90%,
+    transparent
+  );
+  overflow: hidden;
+}
+
+.gallery-marquee:hover .gallery-marquee-track {
+  animation-play-state: paused;
+}
+
+.gallery-marquee-track {
+  display: flex;
+  width: max-content;
+  gap: var(--gallery-gap);
+  animation: gallery-marquee-ltr 38s linear infinite;
+  will-change: transform;
+}
+
+.gallery-marquee-set {
+  display: flex;
+  gap: var(--gallery-gap);
+}
+
+@keyframes gallery-marquee-ltr {
+  from {
+    transform: translateX(calc(-50% - var(--gallery-gap) / 2));
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+
+  .float-slow,
+  .float-reverse {
+    animation: none;
+  }
+
+  .gallery-marquee-track {
+    animation: none;
+    transform: none;
+  }
 }
