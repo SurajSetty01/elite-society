@@ -72,17 +72,17 @@ export function ManifestoSection() {
     <section
       id="manifesto"
       ref={sectionRef}
-      className="relative flex min-h-[44svh] items-center justify-center px-6 py-14 text-center sm:min-h-[48svh] sm:px-10 sm:py-16 lg:min-h-[52svh]"
+      className="relative flex min-h-[44svh] items-center justify-center py-14 text-center sm:min-h-[48svh] sm:py-16 lg:min-h-[52svh]"
     >
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,240,0.04),transparent_54%)]" />
 
-      <div className="relative mx-auto max-w-4xl">
+      <div className="site-shell-narrow relative">
         <div className="inline-flex rounded-full border border-[#fffff0]/10 bg-[#fffff0]/[0.02] px-4 py-2 text-[0.54rem] uppercase tracking-[0.34em] text-[#fffff0]/38 sm:text-[0.6rem]">
           Membership note
         </div>
 
         <h2
-          className={`${brandSerif.className} mx-auto mt-5 max-w-4xl text-[2.4rem] leading-[1.02] sm:text-5xl lg:text-[4.25rem]`}
+          className={`${brandSerif.className} mx-auto mt-5 max-w-[72rem] text-[2.4rem] leading-[1.02] sm:text-5xl lg:text-[4.25rem] xl:text-[5.1rem]`}
         >
           {manifestoWords.map((word, index) => {
             const wordProgress = Math.max(

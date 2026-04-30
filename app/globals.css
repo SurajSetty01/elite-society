@@ -39,6 +39,32 @@ a {
   text-decoration: none;
 }
 
+.site-shell,
+.site-shell-wide,
+.site-shell-narrow {
+  margin-inline: auto;
+  width: min(calc(100% - clamp(2rem, 5vw, 8rem)), var(--shell-width));
+}
+
+.site-shell {
+  --shell-width: 108rem;
+}
+
+.site-shell-wide {
+  --shell-width: 132rem;
+}
+
+.site-shell-narrow {
+  --shell-width: 82rem;
+}
+
+.bleed-gutter {
+  padding-inline: max(
+    clamp(1.5rem, 5vw, 8rem),
+    calc((100vw - 132rem) / 2)
+  );
+}
+
 .reveal {
   opacity: 0;
   transform: translate3d(0, 2.25rem, 0) scale(0.985);

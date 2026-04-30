@@ -209,14 +209,14 @@ export default function Home() {
           <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(12,9,10,0.22),rgba(12,9,10,0.88))]" />
         </div>
 
-        <section className="relative mx-auto flex min-h-[calc(100svh-7.5rem)] max-w-5xl items-center justify-center px-6 pb-24 pt-14 text-center sm:px-10">
-          <div className="max-w-3xl">
+        <section className="site-shell-wide relative flex min-h-[calc(100svh-7.5rem)] items-center justify-center pb-24 pt-14 text-center">
+          <div className="max-w-[64rem]">
             <p className="text-[0.62rem] uppercase tracking-[0.48em] text-[#fffff0]/48 sm:text-[0.72rem]">
               Private membership. Curated access.
             </p>
 
             <h1
-              className={`${brandSerif.className} mt-6 text-5xl leading-[0.9] text-[#fffff0] sm:text-7xl lg:text-[5.5rem]`}
+              className={`${brandSerif.className} mt-6 text-5xl leading-[0.9] text-[#fffff0] sm:text-7xl lg:text-[5.5rem] xl:text-[6.9rem]`}
             >
               A quieter room for people already seen.
             </h1>
@@ -251,11 +251,11 @@ export default function Home() {
       <ManifestoSection />
 
       <section id="about" className="relative py-20 sm:py-24 lg:min-h-[100svh] lg:py-0">
-        <div className="mx-auto flex max-w-7xl items-center px-6 sm:px-10 lg:min-h-[100svh] lg:px-14">
-          <div className="grid w-full gap-14 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:gap-20">
+        <div className="site-shell-wide flex items-center lg:min-h-[100svh]">
+          <div className="grid w-full gap-14 lg:grid-cols-[minmax(0,1.08fr)_minmax(28rem,0.92fr)] lg:items-center lg:gap-20 xl:gap-28">
             <div className="order-2 lg:order-1">
               <Reveal className="relative">
-                <div className="relative mx-auto h-[30rem] max-w-xl sm:h-[38rem] lg:h-[70vh] lg:max-h-[48rem] lg:max-w-none">
+                <div className="relative mx-auto h-[30rem] max-w-xl sm:h-[38rem] lg:h-[70vh] lg:max-h-[48rem] lg:max-w-none xl:h-[76vh] xl:max-h-[56rem]">
                   <div
                     className={`absolute inset-y-[10%] left-0 w-[63%] overflow-hidden rounded-[2rem] border border-[#fffff0]/10 bg-[#fffff0]/[0.03] ${aboutImages[0].className}`}
                   >
@@ -355,8 +355,8 @@ export default function Home() {
       </section>
 
       <section id="experience" className="relative py-20 sm:py-24 lg:py-28">
-        <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-14">
-          <div className="grid gap-12 lg:grid-cols-[0.86fr_1.14fr] lg:gap-16">
+        <div className="site-shell-wide">
+          <div className="grid gap-12 lg:grid-cols-[minmax(22rem,0.78fr)_minmax(0,1.22fr)] lg:gap-16 xl:gap-24">
             <div>
               <Reveal>
                 <div className="inline-flex rounded-full border border-[#fffff0]/10 bg-[#fffff0]/[0.03] px-4 py-2 text-[0.58rem] uppercase tracking-[0.38em] text-[#fffff0]/40 sm:text-[0.64rem]">
@@ -405,8 +405,8 @@ export default function Home() {
       </section>
 
       <section id="membership-tiers" className="relative py-20 sm:py-24 lg:py-28">
-        <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-14">
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:gap-16">
+        <div className="site-shell-wide">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(28rem,1.08fr)] lg:items-end lg:gap-16 xl:gap-24">
             <Reveal>
               <div>
                 <div className="inline-flex rounded-full border border-[#fffff0]/10 bg-[#fffff0]/[0.03] px-4 py-2 text-[0.58rem] uppercase tracking-[0.38em] text-[#fffff0]/40 sm:text-[0.64rem]">
@@ -457,7 +457,7 @@ export default function Home() {
                     </p>
                     {index === 1 ? (
                       <p className="rounded-full border border-white bg-white px-3 py-1 text-[0.52rem] uppercase tracking-[0.24em] text-black">
-                      Preferred
+                        Preferred
                       </p>
                     ) : null}
                   </div>
@@ -503,19 +503,19 @@ export default function Home() {
                 by city, calendar, and the level of access requested.
               </p>
 
-          <Link
-            href="/membership-tiers"
-            className="inline-flex w-fit items-center rounded-full border border-[#fffff0] bg-[#fffff0] px-5 py-3 text-[0.62rem] font-medium uppercase tracking-[0.34em] text-[#0c090a] transition-all duration-300 hover:bg-transparent hover:text-[#fffff0]"
-            >
-            Explore Tiers
-          </Link>
+              <Link
+                href="/membership-tiers"
+                className="inline-flex w-fit items-center rounded-full border border-[#fffff0] bg-[#fffff0] px-5 py-3 text-[0.62rem] font-medium uppercase tracking-[0.34em] text-[#0c090a] transition-all duration-300 hover:bg-transparent hover:text-[#fffff0]"
+              >
+                Explore Tiers
+              </Link>
             </div>
           </Reveal>
         </div>
       </section>
 
       <section id="gallery" className="relative pb-24 pt-4 sm:pb-28 lg:pb-32">
-        <div className="mx-auto max-w-5xl px-6 text-center sm:px-10">
+        <div className="site-shell-narrow text-center">
           <Reveal>
             <div className="inline-flex rounded-full border border-[#fffff0]/10 bg-[#fffff0]/[0.03] px-4 py-2 text-[0.58rem] uppercase tracking-[0.38em] text-[#fffff0]/40 sm:text-[0.64rem]">
               Travel and events
@@ -546,7 +546,7 @@ export default function Home() {
 
         <div className="mt-10 sm:mt-12">
           <div className="gallery-marquee" id="society-gallery-carousel">
-            <div className="gallery-marquee-track px-6 sm:px-10 lg:px-14">
+            <div className="gallery-marquee-track bleed-gutter">
               {[0, 1].map((copyIndex) => (
                 <div
                   key={copyIndex}
@@ -585,7 +585,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mx-auto mt-5 max-w-3xl px-6 text-center sm:px-10">
+          <div className="site-shell-narrow mt-5 text-center">
             <p className="text-[0.56rem] uppercase tracking-[0.34em] text-[#fffff0]/34">
               Selected moments from hosted dinners, coastal passages, and quiet
               weekends away.
@@ -595,8 +595,8 @@ export default function Home() {
       </section>
 
       <section id="faq" className="relative pb-24 sm:pb-28 lg:pb-32">
-        <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-14">
-          <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:gap-16">
+        <div className="site-shell">
+          <div className="grid gap-12 lg:grid-cols-[minmax(26rem,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-16 xl:gap-24">
             <div className="lg:sticky lg:top-24">
               <Reveal>
                 <div className="overflow-hidden rounded-[2rem] border border-[#fffff0]/10 bg-[#fffff0]/[0.03]">

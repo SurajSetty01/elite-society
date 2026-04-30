@@ -7,7 +7,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 bg-[#0c090a]/72 backdrop-blur-xl">
       <nav
         aria-label="Primary"
-        className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-6 pb-4 pt-6 sm:flex-row sm:items-center sm:justify-between sm:px-10 lg:px-14 lg:pt-8"
+        className="site-shell-wide flex flex-col gap-4 pb-4 pt-6 sm:flex-row sm:items-center sm:justify-between lg:pt-8"
       >
         <Link
           aria-label="Lite Society home"
@@ -30,7 +30,7 @@ export function SiteHeader() {
         </Link>
       </nav>
 
-      <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-14">
+      <div className="site-shell-wide">
         <div className="h-px w-full bg-gradient-to-r from-transparent via-[#fffff0]/16 to-transparent" />
       </div>
     </header>

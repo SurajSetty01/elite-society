@@ -24,8 +24,8 @@ export default function SiteFooter() {
       <div className="pointer-events-none absolute -right-32 top-16 h-72 w-72 rounded-full border border-[#fffff0]/[0.04]" />
       <div className="pointer-events-none absolute bottom-10 left-8 h-36 w-36 rounded-full border border-[#fffff0]/[0.035]" />
 
-      <div className="mx-auto max-w-7xl px-6 py-16 sm:px-10 sm:py-20 lg:px-14">
-        <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+      <div className="site-shell-wide py-16 sm:py-20">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(28rem,0.8fr)] lg:gap-16 xl:gap-24">
           <div>
             <Link
               aria-label="Lite Society home"
@@ -41,7 +41,7 @@ export default function SiteFooter() {
             </Link>
 
             <p
-              className={`${brandSerif.className} mt-8 max-w-2xl text-3xl leading-[1.04] text-[#fffff0] sm:text-5xl lg:text-[3.6rem]`}
+              className={`${brandSerif.className} mt-8 max-w-[54rem] text-3xl leading-[1.04] text-[#fffff0] sm:text-5xl lg:text-[3.6rem] xl:text-[4.4rem]`}
             >
               The room is private. The invitation is intentional.
             </p>
@@ -128,7 +128,7 @@ export default function SiteFooter() {
       </div>
 
       <div className="border-t border-[#fffff0]/10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-5 px-6 py-6 text-[0.62rem] uppercase tracking-[0.24em] text-[#fffff0]/28 sm:px-10 md:flex-row md:items-center md:justify-between lg:px-14">
+        <div className="site-shell-wide flex flex-col gap-5 py-6 text-[0.62rem] uppercase tracking-[0.24em] text-[#fffff0]/28 md:flex-row md:items-center md:justify-between">
           <p>© 2026 Lite Society. Private & confidential.</p>
           <div className="flex flex-wrap gap-x-6 gap-y-3">
             {["Privacy", "Terms", "Cookies"].map((item) => (
