@@ -69,45 +69,6 @@ const membershipExperiences = [
   },
 ] as const;
 
-const membershipTiers = [
-  {
-    benefits: [
-      "Access to Lite Society signature gatherings",
-      "Personalized welcome kit",
-      "Physical and digital membership card",
-    ],
-    description:
-      "For those ready to step inside the society and experience its core moments.",
-    name: "Signature",
-    price: "€1,800 / year",
-  },
-  {
-    benefits: [
-      "Access to private community events",
-      "Invitation to the private member circle",
-      "Dedicated community manager support",
-      "Concierge service",
-    ],
-    description:
-      "For members looking to connect, collaborate, and move closer to the room.",
-    name: "Inner Circle",
-    price: "€6,000 / year",
-  },
-  {
-    benefits: [
-      "Everything within Inner Circle",
-      "Concierge support for personalized planning",
-      "Complimentary +1 for your first event",
-      "€10,000 credit toward your first hosted experience",
-    ],
-    description:
-      "For members seeking privileged access, seamless curation, and deeper impact.",
-    name: "Legacy",
-    price: "€15,000 / first year",
-    secondaryPrice: "€6,000 / following years",
-  },
-] as const;
-
 const galleryMoments = [
   {
     caption: "Private dinner",
@@ -149,33 +110,33 @@ const galleryMoments = [
 const faqs = [
   {
     answer:
-      "Applications are best suited to founders, creators, executives, and socially visible individuals who value curated rooms, private experiences, and intentional connection.",
-    question: "Who is the society designed for?",
+      "You begin with the private application. Once submitted, your profile is reviewed for fit, intent, and relevance to the society.",
+    question: "How does the application process work?",
   },
   {
     answer:
-      "Prospective members apply through a private form, after which each submission is reviewed for fit, relevance, and the level of access most aligned with their profile.",
-    question: "How does the membership application work?",
+      "No. Lite Society is intentionally selective, and submitting an application does not guarantee acceptance or access.",
+    question: "Is membership guaranteed?",
   },
   {
     answer:
-      "Lite Society is structured in tiers, allowing access, event invitations, travel moments, and private handling to expand more intentionally rather than all at once.",
-    question: "Are there different membership tiers?",
+      "After an application is reviewed, someone from the team will reach out via email with further details regarding membership and pricing.",
+    question: "How will I receive membership details and pricing?",
   },
   {
     answer:
-      "The membership tiers page outlines the structure and benefits of each level. Final pricing, placement, and availability are still shared privately when relevant.",
-    question: "Where can I review the tier details?",
+      "If your application is aligned, a member of our team will contact you privately with the next steps. If there is not a fit, access may not be extended.",
+    question: "What happens after I apply?",
   },
   {
     answer:
-      "Some experiences may open to invited guests, though the majority of gatherings, circles, and benefits are reserved for members.",
-    question: "Can guests attend without joining?",
+      "Yes. Every application is reviewed manually so the society can remain curated, discreet, and intentionally assembled.",
+    question: "Are all applications reviewed manually?",
   },
   {
     answer:
-      "Programming is intentionally selective rather than constant. Events, dinners, and travel experiences are organized throughout the year as the calendar is curated.",
-    question: "How often are events and trips arranged?",
+      "The strongest applications are clear, specific, and honest about who you are, what you are building, and why this private environment feels relevant now.",
+    question: "What makes a strong application?",
   },
 ] as const;
 
@@ -185,9 +146,6 @@ const faqFeatureImage = {
 } as const;
 
 export default function Home() {
-  const applicationUrl = process.env.NEXT_PUBLIC_TYPEFORM_URL ?? "#";
-  const hasApplicationUrl = applicationUrl !== "#";
-
   return (
     <main className="relative">
       <section className="relative min-h-[calc(100svh-7.5rem)] overflow-hidden">
@@ -227,14 +185,12 @@ export default function Home() {
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-5">
-              <a
-                href={applicationUrl}
-                rel={hasApplicationUrl ? "noreferrer" : undefined}
-                target={hasApplicationUrl ? "_blank" : undefined}
+              <Link
+                href="/apply"
                 className="inline-flex items-center rounded-full border border-[#fffff0] bg-[#fffff0] px-7 py-3 text-[0.65rem] font-medium uppercase tracking-[0.32em] text-[#0c090a] transition-all duration-300 hover:bg-transparent hover:text-[#fffff0]"
               >
                 Apply for Membership
-              </a>
+              </Link>
 
               <a
                 href="#manifesto"
@@ -404,116 +360,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="membership-tiers" className="relative py-20 sm:py-24 lg:py-28">
-        <div className="site-shell-wide">
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(28rem,1.08fr)] lg:items-end lg:gap-16 xl:gap-24">
-            <Reveal>
-              <div>
-                <div className="inline-flex rounded-full border border-[#fffff0]/10 bg-[#fffff0]/[0.03] px-4 py-2 text-[0.58rem] uppercase tracking-[0.38em] text-[#fffff0]/40 sm:text-[0.64rem]">
-                  Membership philosophy
-                </div>
-
-                <h2
-                  className={`${brandSerif.className} mt-6 max-w-2xl text-4xl leading-[0.95] text-[#fffff0] sm:text-5xl lg:text-6xl`}
-                >
-                  More than access. A considered entrance into the scene.
-                </h2>
-              </div>
-            </Reveal>
-
-            <Reveal delayMs={120}>
-              <div className="border-l border-[#fffff0]/12 pl-6 sm:pl-8">
-                <p className="max-w-xl text-sm leading-7 text-[#fffff0]/58 sm:text-base sm:leading-8">
-                  Each tier is designed for authentic, elevated proximity to
-                  the people, rooms, and events that shape Lite Society. Entry
-                  is never automatic. It is considered by fit, signal, and
-                  connection.
-                </p>
-
-                <div className="mt-8 grid gap-3 text-[0.58rem] uppercase tracking-[0.34em] text-[#fffff0]/40 sm:grid-cols-3">
-                  {membershipTiers.map((tier, index) => (
-                    <p key={tier.name}>
-                      0{index + 1} {tier.name}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-          </div>
-
-          <div className="mt-14 grid gap-5 lg:grid-cols-3">
-            {membershipTiers.map((tier, index) => (
-              <Reveal key={tier.name} delayMs={120 + index * 90}>
-                <article
-                  className={`group flex h-full flex-col border border-[#fffff0]/10 bg-[#fffff0]/[0.03] p-6 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:bg-[#fffff0]/[0.055] sm:p-7 ${
-                    index === 1
-                      ? "rounded-[1.9rem] lg:-mt-6 lg:min-h-[34rem]"
-                      : "rounded-[1.6rem] lg:mt-8"
-                  }`}
-                >
-                  <div className="flex items-start justify-between gap-5">
-                    <p className="text-[0.56rem] uppercase tracking-[0.34em] text-[#fffff0]/34">
-                      Tier 0{index + 1}
-                    </p>
-                    {index === 1 ? (
-                      <p className="rounded-full border border-white bg-white px-3 py-1 text-[0.52rem] uppercase tracking-[0.24em] text-black">
-                        Preferred
-                      </p>
-                    ) : null}
-                  </div>
-
-                  <h3
-                    className={`${brandSerif.className} mt-5 text-[2.35rem] leading-none text-[#fffff0] sm:text-[2.75rem]`}
-                  >
-                    {tier.name}
-                  </h3>
-
-                  <div className="mt-5 border-y border-[#fffff0]/10 py-5">
-                    <p className="text-sm font-medium uppercase tracking-[0.26em] text-[#fffff0]">
-                      {tier.price}
-                    </p>
-                    {"secondaryPrice" in tier ? (
-                      <p className="mt-2 text-xs uppercase tracking-[0.22em] text-[#fffff0]/40">
-                        {tier.secondaryPrice}
-                      </p>
-                    ) : null}
-                  </div>
-
-                  <ul className="mt-7 space-y-3 text-sm leading-7 text-[#fffff0]/62">
-                    {tier.benefits.map((benefit) => (
-                      <li key={benefit} className="flex gap-3">
-                        <span className="mt-3 h-px w-4 shrink-0 bg-[#fffff0]/18 transition-colors duration-300 group-hover:bg-[#fffff0]/38" />
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <p className="mt-auto pt-8 text-sm leading-7 text-[#fffff0]/50">
-                    {tier.description}
-                  </p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal delayMs={280}>
-            <div className="mt-12 flex flex-col items-start justify-between gap-5 border-t border-[#fffff0]/10 pt-7 sm:flex-row sm:items-center">
-              <p className="max-w-2xl text-sm leading-7 text-[#fffff0]/46">
-                Placement is reviewed after application. Availability may vary
-                by city, calendar, and the level of access requested.
-              </p>
-
-              <Link
-                href="/membership-tiers"
-                className="inline-flex w-fit items-center rounded-full border border-[#fffff0] bg-[#fffff0] px-5 py-3 text-[0.62rem] font-medium uppercase tracking-[0.34em] text-[#0c090a] transition-all duration-300 hover:bg-transparent hover:text-[#fffff0]"
-              >
-                Explore Tiers
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       <section id="gallery" className="relative pb-24 pt-4 sm:pb-28 lg:pb-32">
         <div className="site-shell-narrow text-center">
           <Reveal>
@@ -639,14 +485,12 @@ export default function Home() {
                       Questions before applying can remain discreet.
                     </p>
                     <div className="mt-5">
-                      <a
-                        href={applicationUrl}
-                        rel={hasApplicationUrl ? "noreferrer" : undefined}
-                        target={hasApplicationUrl ? "_blank" : undefined}
+                      <Link
+                        href="/apply"
                         className="inline-flex items-center rounded-full border border-[#fffff0]/70 bg-[#fffff0] px-5 py-3 text-[0.56rem] font-medium uppercase tracking-[0.32em] text-[#0c090a] transition-all duration-300 hover:bg-transparent hover:text-[#fffff0]"
                       >
                         Open Application
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

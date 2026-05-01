@@ -3,9 +3,8 @@ import Link from "next/link";
 import { brandSerif } from "@/app/fonts";
 
 const footerLinks = [
-  { href: "/membership-tiers", label: "Membership Tiers" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/members", label: "Members Area" },
+  { href: "/members/login", label: "Members Area" },
 ] as const;
 
 const socialLinks = [
@@ -15,9 +14,6 @@ const socialLinks = [
 ] as const;
 
 export default function SiteFooter() {
-  const applicationUrl = process.env.NEXT_PUBLIC_TYPEFORM_URL ?? "#";
-  const hasApplicationUrl = applicationUrl !== "#";
-
   return (
     <footer className="relative overflow-hidden border-t border-[#fffff0]/10 bg-[#080607]">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#fffff0]/32 to-transparent" />
@@ -47,20 +43,11 @@ export default function SiteFooter() {
             </p>
 
             <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <a
-                href={applicationUrl}
-                rel={hasApplicationUrl ? "noreferrer" : undefined}
-                target={hasApplicationUrl ? "_blank" : undefined}
+              <Link
+                href="/apply"
                 className="inline-flex w-fit items-center rounded-full border border-[#fffff0] bg-[#fffff0] px-6 py-3 text-[0.62rem] font-medium uppercase tracking-[0.32em] text-[#0c090a] transition-all duration-300 hover:bg-transparent hover:text-[#fffff0]"
               >
                 Apply for Membership
-              </a>
-
-              <Link
-                href="/membership-tiers"
-                className="inline-flex w-fit items-center rounded-full border border-[#fffff0]/14 bg-[#fffff0]/[0.03] px-6 py-3 text-[0.62rem] font-medium uppercase tracking-[0.32em] text-[#fffff0]/72 transition-all duration-300 hover:border-[#fffff0] hover:text-[#fffff0]"
-              >
-                View Tiers
               </Link>
             </div>
           </div>

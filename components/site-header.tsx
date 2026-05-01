@@ -23,7 +23,7 @@ export function SiteHeader() {
         </Link>
 
         <Link
-          href="/members"
+          href="/members/login"
           className="inline-flex w-fit items-center rounded-full border border-[#fffff0] bg-[#fffff0] px-5 py-3 text-[0.62rem] font-medium uppercase tracking-[0.34em] text-[#0c090a] transition-all duration-300 hover:bg-transparent hover:text-[#fffff0]"
         >
           Members Area
